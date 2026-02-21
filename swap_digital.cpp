@@ -3,16 +3,16 @@
 using namespace std;
 
 void output(string a){
-    for(int i=a.length()-2; i>0; i--){
-        int max = i, last = 0;
+    for(int i=a.length()-2; i>=0; i--){
+        int index = i, last = -1;
         for(int j=i+1; j<a.length(); j++){
             if(a[j]-'0'<a[i]-'0' && a[j]-'0'>last){
-                max=j;
+                index=j;
                 last = a[j]-'0';
             }
         }
-        if(max != i){
-            swap(a[i],a[max]);
+        if(index != i){
+            swap(a[i],a[index]);
             cout<<a<<endl;
             return;
         }
@@ -23,7 +23,6 @@ void output(string a){
 int main(){
     int t; cin>>t;
     while(t--){
-        cin.ignore();
         string a; cin>>a;
         output(a);
     }
