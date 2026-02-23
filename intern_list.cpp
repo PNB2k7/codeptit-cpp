@@ -28,7 +28,7 @@ void sort(Intern l[], int n){
     for(int i=0; i<n-1; i++){
         int c=1;
         for(int j=0; j<n-i-1; j++){
-            if(l[j].name.compare(l[j+1].name)>0){
+            if(l[j].id.compare(l[j+1].id)>0){
                 swap(l[j],l[j+1]);
                 c=0;
             }
