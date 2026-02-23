@@ -43,6 +43,19 @@ void output_date(date time){
     <<setfill('0')<<setw(4)<<time.year<<" ";
 }
 
+void sapxep(SinhVien ds[], int n){
+    while(1){
+        int c=1;
+        for(int i=0; i<n-1; i++){
+            if(ds[i].gpa<ds[i+1].gpa){
+                swap(ds[i],ds[i+1]);
+                c=0;
+            }
+        }
+        if(c) break;
+    }
+}
+
 void nhap(SinhVien ds[], int n){
     for(int i=0; i<n; i++){
         stringstream ss;
@@ -69,6 +82,7 @@ int main(){
     int N;
     cin >> N;
     nhap(ds, N);
+    sapxep(ds,N);
     in(ds, N);
     return 0;
 }
