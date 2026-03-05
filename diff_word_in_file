@@ -1,0 +1,25 @@
+#include<iostream>
+#include<set>
+#include<fstream>
+#include<sstream>
+using namespace std;
+
+void check(string s, set<string> &st){
+    stringstream ss(s);
+    string word;
+    while(ss>>word){
+        st.insert(word);
+    }
+}
+
+int main(){
+    string s;
+    ifstream ptr("DATA.in");
+    set<string> st;
+    while(getline(ptr,s)){
+        check(s,st);
+    }
+    for(string x: st){
+        cout<<x<<endl;
+    }
+}
