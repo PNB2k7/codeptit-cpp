@@ -42,6 +42,15 @@ class SinhVien{
             birth.output_day();
             cout<<fixed<<setprecision(2)<<gpa;
         }
+        friend istream& operator >> (istream &in, SinhVien &a){
+            a.nhap();
+            return in;
+        }
+
+        friend ostream& operator << (ostream &out, SinhVien a){
+            a.xuat();
+            return out;
+        }
 };
 
 int main(){
