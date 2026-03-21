@@ -27,6 +27,7 @@ class SinhVien{
             : id(id), name(name), croom(croom), birth(birth), gpa(gpa) {}
         friend istream& operator >> (istream& in, SinhVien &a);
         friend ostream& operator << (ostream& out, SinhVien &a);
+        friend void sapxep(SinhVien ds[], int N);
 };
 
 string standard (string &s){
@@ -68,6 +69,19 @@ ostream& operator <<(ostream &out, SinhVien &a){
     return out;
 }
 
+void sapxep(SinhVien ds[], int N){
+    for(int i=0; i<N-1; i++){
+        int ok = 1;
+        for(int j=1; j<N-i; j++){
+            if(ds[j].gpa>ds[j-1].gpa) {
+                swap(ds[j],ds[j-1]);
+                ok=0;
+            }
+            if(ok) return;
+        }
+    }
+}
+
 int main(){
     SinhVien ds[50];
     int N, i;
@@ -75,6 +89,7 @@ int main(){
     for(i=0;i<N;i++){
         cin >> ds[i];
     }
+    sapxep(ds, N);
     for(i=0;i<N;i++){
         cout << ds[i];
     }
