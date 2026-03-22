@@ -47,14 +47,13 @@ int main(){
     int N; cin>>N;
     Student ds[N];
     for(int i=0; i<N; i++) cin>>ds[i];
-    sort(ds,N);
-    for(int i=0; i<N; i++) cout<<ds[i];
     int t; cin>>t;
     while(t--){
-        string room; cin>>room;
-        cout<<"DANH SACH SINH VIEN LOP "<<room<<":\n";
+        string tmp; cin>>tmp;
+        cout<<"DANH SACH SINH VIEN KHOA "<<tmp<<":\n";
         for(int i=0; i<N; i++){
-            if(ds[i].get_croom() == room){
+            string key = ds[i].get_croom();
+            if(ds[i].get_croom().substr(1,2) == tmp.substr(2,2)){
                 cout<<ds[i];
             }
         }
