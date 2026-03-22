@@ -27,15 +27,9 @@ void sort(Student ds[], int N){
     for(int i=0; i<N; i++){
         int c=1;
         for(int j=1; j<N-i; j++){
-            if(ds[j].croom.compare(ds[j-1].croom)<0){
+            if(ds[j].id.compare(ds[j-1].id)<0){
                 swap(ds[j], ds[j-1]);
                 c=0;
-            }
-            if(ds[j].croom.compare(ds[j-1].croom)==0){
-                if(ds[j].id.compare(ds[j-1].id)<0){
-                    swap(ds[j], ds[j-1]);
-                    c=0;
-                }
             }
         }
         if(c) return;
@@ -43,9 +37,9 @@ void sort(Student ds[], int N){
 }
 
 int main(){
-    int N; cin>>N;
-    Student ds[N];
-    for(int i=0; i<N; i++) cin>>ds[i];
-    sort(ds,N);
-    for(int i=0; i<N; i++) cout<<ds[i];
+    Student ds[1000];
+    int n=0;
+    while(cin>>ds[n++]);
+    sort(ds,n);
+    for(int i=0; i<=n; i++) cout<<ds[i];
 }
