@@ -11,6 +11,7 @@ class Student{
         friend istream& operator >> (istream& in, Student &a);
         friend ostream& operator << (ostream& out, Student &a);
         friend void sort(Student ds[], int N);
+        string get_croom() {return croom;}
 };
 
 istream& operator >> (istream& in, Student &a){
@@ -48,4 +49,14 @@ int main(){
     for(int i=0; i<N; i++) cin>>ds[i];
     sort(ds,N);
     for(int i=0; i<N; i++) cout<<ds[i];
+    int t; cin>>t;
+    while(t--){
+        string room; cin>>room;
+        cout<<"DANH SACH SINH VIEN LOP "<<room<<":\n";
+        for(int i=0; i<N; i++){
+            if(ds[i].get_croom() == room){
+                cout<<ds[i];
+            }
+        }
+    }
 }
